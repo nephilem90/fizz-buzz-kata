@@ -23,12 +23,10 @@ class TestStringMethods(unittest.TestCase):
     def test_all_fifteen_multiple_are_fizzbuzz(self):
         self.assertEqual(FizzBuss(randint(1111, 9999) * 15).return_number_or_fizz_buzz(), 'fizzbuzz')
 
-    @staticmethod
-    def rand_multiple(multiple_of, not_multiple_of):
-
+    def rand_multiple(self, multiple_of, not_multiple_of):
         rand_multiple = randint(1111, 9999) * multiple_of
-        while (rand_multiple % not_multiple_of) == 0:
-            rand_multiple = randint(1111, 9999) * multiple_of
+        if (rand_multiple % not_multiple_of) == 0:
+            return self.rand_multiple(multiple_of, not_multiple_of)
         return rand_multiple
 
 
