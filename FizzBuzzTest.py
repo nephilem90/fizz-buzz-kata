@@ -40,9 +40,13 @@ class TestStringMethods(unittest.TestCase):
     def test_onehundredfiftyfour_is_buzz(self):
         self.assertEqual(FizzBuzz.return_number_or_fizz_buzz(154), 'buzz')
 
+    def test_eleven_not_fizz_not_buzz(self):
+        self.assertEqual(FizzBuzz.return_number_or_fizz_buzz(11), 11)
+
     def rand_multiple(self, number, no_type):
         rand_multiple = randint(1111, 9999) * number
-        if (no_type == 'fizz' and SoundNumberEvaluator.is_sound_number(rand_multiple, 3)) or (no_type == 'buzz' and SoundNumberEvaluator.is_sound_number(rand_multiple, 5)):
+        if (no_type == 'fizz' and SoundNumberEvaluator.is_sound_number(rand_multiple, 3)) or (
+                no_type == 'buzz' and SoundNumberEvaluator.is_sound_number(rand_multiple, 5)):
             return self.rand_multiple(number, no_type)
         return rand_multiple
 
