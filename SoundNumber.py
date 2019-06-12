@@ -9,6 +9,10 @@ class SoundNumber:
     def add_sound_number(self, sound, number):
         self.sound_number.append({'sound': sound, 'number': number})
 
-    def number_or_sound(self, number):
+    def join_sound(self, number):
         return ''.join(
             x['sound'] for x in self.sound_number if SoundNumberEvaluator.is_sound_number(number, x['number']))
+
+    def number_or_sound(self, number):
+        sound = self.join_sound(number)
+        return number if sound == '' else sound
